@@ -1,0 +1,176 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    animation: slide-down 1s ease-out;
+}
+
+header nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    display: block; /* Makes the link fill the li element */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px; /* Adds padding to create the box effect */
+    border: 1px solid #555; /* Border around the box */
+    border-radius: 5px; /* Rounded corners for the box */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    background-color: #555; /* Darker background on hover/active */
+    color: #ff6347; /* Highlight text color */
+    border-color: #ff6347; /* Border color change on hover/active */
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+section {
+    padding: 50px;
+    text-align: center;
+    display: none; /* Hidden by default */
+    border: 1px solid #ccc; /* Added border */
+    border-radius: 5px; /* Rounded corners */
+    margin: 10px; /* Margin around sections */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+section.active {
+    display: block; /* Visible when active */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+p {
+    margin: 0 auto;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Projects Section Styles */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    animation: fade-in 1s ease-in-out;
+}
+
+.project {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: calc(33% - 40px);
+    transition: transform 0.3s;
+    animation: zoom-in 0.5s ease;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+.project h3 {
+    margin-top: 0;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    animation: slide-up 1s ease-out;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Badge Styles */
+.badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badges div {
+    margin: 10px;
+}
+
+/* Keyframes */
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
