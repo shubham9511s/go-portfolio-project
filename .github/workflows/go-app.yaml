@@ -72,10 +72,10 @@ jobs:
       - name: Cloning the helm repo
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
         with:
-          owner: AmanPathak-DevOps
-          repository: go-app-devops
+          owner: 'AmanPathak-DevOps'
+          repository: 'go-app-devops'
           access-token: ${{ secrets.REPO-PAT }}
-          branch: master
+          branch: 'master'
 
 
       - name: Updating values in helm
