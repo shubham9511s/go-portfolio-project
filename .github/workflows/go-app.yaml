@@ -105,7 +105,6 @@ jobs:
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
         with:
           owner: 'AmanPathak-DevOps'
-          # repository: 'go-app-devops'
           repository: 'go-app-devops'
           access-token: ${{ secrets.REPO_PAT }}
           branch: 'master'
@@ -134,11 +133,62 @@ jobs:
       steps:
       
       - name: Slack Notification
-        uses: act10ns/slack@v1
+      #   uses: act10ns/slack@v1
+      #   with:
+      #     status: ${{ job.status }}
+      #     steps: ${{ toJson(steps) }}
+      #     channel: '#go-app-github-actions'
+      #   if: always()
+        uses: slackapi/slack-github-action@v1.24.0
         with:
-          status: ${{ job.status }}
-          steps: ${{ toJson(steps) }}
-          channel: '#go-app-github-actions'
-        if: always()
-         
-         
+          payload: |
+            {
+              "channel": "#go-app-github-actions",
+              "attachments": [
+                {
+                  "color": "#36a64f",
+                  "pretext": "GitHub Actions Build Notification",
+                  "title": "Build Notification",
+                  "fields": [
+                    {
+                      "title": "Job Name",
+                      "value": "${{ github.workflow }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Build Number",
+                      "value": "${{ github.run_number }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Build URL",
+                      "value": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click Here>",
+                      "short": true
+                    },
+                    {
+                      "title": "Branch",
+                      "value": "${{ github.ref_name }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Commit",
+                      "value": "${{ github.sha }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Author",
+                      "value": "${{ github.actor }}",
+                      "short": true
+                    },
+                    {
+                      "title": "Status",
+                      "value": "${{ job.status }}",
+                      "short": true
+                    }
+                  ]
+                }
+              ]
+            }
+  
+           
+           
