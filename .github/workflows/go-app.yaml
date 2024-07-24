@@ -73,7 +73,7 @@ jobs:
         uses: whyakari/github-repo-action@v3.1
         with:
           owner: AmanPathak-DevOps
-          repository: https://github.com/AmanPathak-DevOps/go-app-devops
+          repository: go-app-devops
           access-token: ${{ secrets.REPO-PAT }}
           branch: master
 
