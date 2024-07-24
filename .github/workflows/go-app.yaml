@@ -47,7 +47,7 @@ jobs:
   Docker-Image-Push: 
     runs-on: ubuntu-latest
 
-    needs: build
+    needs: Code-Quality
 
     steps:
     - name: Checkout repository
