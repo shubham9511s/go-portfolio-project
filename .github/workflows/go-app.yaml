@@ -81,8 +81,17 @@ jobs:
 
       - name: Updating values in helm
         run: |
-          ls
           cd go-app-devops
+          ls
+          sed -i 's/tag: .*/tag: "${{github.run_id}}"/' value.yaml
+
+      - name: Pushing changes
+        run: |
+          git config --global user.email "aman07pathak@gmail.com"
+          git config --global user.name "AmanPathak-DevOps"
+          git add values.yaml
+          git commit -am "Updated values.yaml file"
+          git push
       
         
     
