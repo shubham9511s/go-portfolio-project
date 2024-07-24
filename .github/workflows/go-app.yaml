@@ -64,6 +64,20 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/go-port:${{github.run_id}}
 
+  Image-Scanning:
+      runs-on: ubuntu-latest
+      steps:
+
+      - name: Running Vulnerability Check on Docker Image
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          image-ref: 'docker.io/${{ DOCKER_USERNAME }}/go-port:${{ github.run_id }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: false
+          vulne-type: 'os,library'
+          serverity: 'CRITICAL,HIGH'
+
   Updating-helm-tags:
 
       runs-on: ubuntu-latest
