@@ -70,12 +70,12 @@ jobs:
       steps:
       
       - name: Cloning the helm repo
-        uses: whyakari/github-repo-action@v3.1
+        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
         with:
           owner: AmanPathak-DevOps
           repository: go-app-devops
           access-token: ${{ secrets.REPO-PAT }}
-          # branch: master
+          branch: master
 
 
       - name: Updating values in helm
