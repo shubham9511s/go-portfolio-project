@@ -129,7 +129,7 @@ jobs:
   Slack-Notification:
 
       runs-on: ubuntu-latest
-      needs: [build, Code-Quality, Docker-Image-Push, Image-Scanning, Updating-helm-tags]
+      # needs: [build, Code-Quality, Docker-Image-Push, Image-Scanning, Updating-helm-tags]
       steps:
       
       - name: Slack Notification
