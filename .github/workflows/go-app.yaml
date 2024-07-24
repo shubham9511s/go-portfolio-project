@@ -81,7 +81,6 @@ jobs:
 
       - name: Updating values in helm
         run: |
-          pwd
           ls
           cd go-app-devops
       
