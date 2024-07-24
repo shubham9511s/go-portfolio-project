@@ -81,7 +81,7 @@ jobs:
         id: docker-scout
         uses: docker/scout-action@v1
         with:
-          command: compare
+          command: cves,compare,recommendations
           image: ${{ steps.meta.outputs.tags }}
           to: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.COMPARE_TAG }}
           ignore-unchanged: true
