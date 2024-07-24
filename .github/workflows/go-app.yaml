@@ -22,7 +22,7 @@ jobs:
         go-version: 1.22
 
     - name: Build 
-      run: go biuild -o go-app
+      run: go build -o go-app
 
     - name: Test
       run: go test ./
