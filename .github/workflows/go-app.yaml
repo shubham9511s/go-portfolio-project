@@ -74,7 +74,7 @@ jobs:
         with:
           owner: AmanPathak-DevOps
           repository: https://github.com/AmanPathak-DevOps/go-app-devops.git
-          access-token: ${{ secrets.GITHUB-APP }}
+          access-token: ${{ secrets.REPO-PAT }}
           branch: master
 
 
