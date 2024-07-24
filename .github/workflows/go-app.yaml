@@ -87,6 +87,7 @@ jobs:
 
       - name: Pushing changes
         run: |
+          cd go-app-devops
           git config --global user.email "aman07pathak@gmail.com"
           git config --global user.name "AmanPathak-DevOps"
           git add values.yaml
