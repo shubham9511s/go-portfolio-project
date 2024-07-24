@@ -83,7 +83,7 @@ jobs:
         run: |
           cd go-app-devops
           ls
-          sed -i 's/tag: .*/tag: "${{github.run_id}}"/' value.yaml
+          sed -i 's/tag: .*/tag: "${{github.run_id}}"/' values.yaml
 
       - name: Pushing changes
         run: |
