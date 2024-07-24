@@ -9,6 +9,7 @@ on:
 
 env: 
   REGISTRY: docker.io
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 jobs:
 
@@ -124,3 +125,19 @@ jobs:
           git add values.yaml
           git commit -am "Updated values.yaml file"
           git push
+
+      
+  Slack-Notification:
+
+      runs-on: ubuntu-latest
+      steps:
+      
+      - name: Slack Notification
+        uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          channel: '#go-app-github-actions'
+        if: always()
+         
+         
