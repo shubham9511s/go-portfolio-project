@@ -76,7 +76,7 @@ jobs:
           exit-code: '1'
           ignore-unfixed: false
           vuln-type: 'os,library'
-          serverity: 'CRITICAL,HIGH'
+          severity: 'CRITICAL,HIGH'
 
   Updating-helm-tags:
 
