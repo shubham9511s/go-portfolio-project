@@ -75,7 +75,7 @@ jobs:
           owner: AmanPathak-DevOps
           repository: go-app-devops
           access-token: ${{ secrets.REPO-PAT }}
-          branch: master
+          # branch: master
 
 
       - name: Updating values in helm
