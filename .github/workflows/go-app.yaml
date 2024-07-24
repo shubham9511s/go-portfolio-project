@@ -75,7 +75,7 @@ jobs:
           owner: 'AmanPathak-DevOps'
           # repository: 'go-app-devops'
           repository: 'go-app-devops'
-          access-token: ${{ secrets.REPO-PAT }}
+          access-token: ${{ secrets.REPO_PAT }}
           branch: 'master'
 
 
