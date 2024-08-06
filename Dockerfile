@@ -1,4 +1,5 @@
-FROM golang:1.22.5 as base
+# Build Stage
+FROM golang:1.22.5 as build
 
 WORKDIR /app
 
@@ -10,11 +11,12 @@ COPY . .
 
 RUN go build -o main .
 
+# Final stage 
 FROM gcr.io/distroless/base
 
-COPY --from=base /app/main .
+COPY --from=build /app/main .
 
-COPY --from=base /app/static ./static
+COPY --from=build /app/static ./static
 
 EXPOSE 8080
 
